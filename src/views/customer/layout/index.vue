@@ -11,14 +11,14 @@
         />
 
         <div class="header_title">
-          <p>票据管理系统</p>
+          <p>客户系统</p>
         </div>
 
         <div class="profile-wrapper">
           <Dropdown @on-click="onProfileItemClick">
             <a class="btn-dropdown">
               <Icon type="md-person" size="30" />
-              <p>管理员</p>
+              <p>客户</p>
               <Icon type="ios-arrow-down"></Icon>
             </a>
             <DropdownMenu slot="list">

@@ -1,6 +1,6 @@
 <template>
   <div class="title">
-    管理员界面
+   客户操作界面
   </div>
 </template>
 <script lang="ts">

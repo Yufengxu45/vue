@@ -2,6 +2,7 @@
   <div>
     <slot />
     <Table
+      stripe
       :context="$parent"
       class="margin-bottom"
       border

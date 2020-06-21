@@ -1,43 +1,43 @@
 export default [
   {
-    icon: 'ios-albums',
+    icon: 'ios-folder',
     name: 'shipping',
     title: '信息表',
     children: [
       {
-        icon: 'ios-albums',
+        icon: 'ios-folder-outline',
         title: '出货信息列表',
         route: '/admin/table/shipping/list'
       },
       {
-        icon: 'ios-albums',
+        icon: 'ios-folder-outline',
         title: '进货信息列表',
         route: '/admin/table/purchase/list'
       },
       {
-        icon: 'ios-albums',
+        icon: 'ios-folder-outline',
         title: '产品信息列表',
         route: '/admin/table/product/list'
       }
     ]
   },
   {
-    icon: 'ios-albums',
+    icon: 'ios-people',
     name: 'user',
     title: '用户信息',
     children: [
       {
-        icon: 'ios-albums',
+        icon: 'ios-person',
         title: '管理员信息',
         route: '/admin/user/admin/list'
       },
       {
-        icon: 'ios-albums',
+        icon: 'ios-person',
         title: '客户信息',
         route: '/admin/user/customer/list'
       },
       {
-        icon: 'ios-albums',
+        icon: 'ios-person',
         title: '供应商信息',
         route: '/admin/user/supplier/list'
       }

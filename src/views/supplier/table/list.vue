@@ -41,10 +41,6 @@ export default {
           key: 'id',
       },
       {
-          title: '客户编号',
-          key: 'customerid',
-      },
-      {
           title: '产品名称',
           key: 'name',
       },
@@ -55,6 +51,27 @@ export default {
       {
           title: '产品信息',
           key: 'information',
+      },
+      {
+          title: '操作',
+          key: 'action',
+          width: 260,
+          render: (h, params) => h('ButtonGroup', [
+              h('Button', {
+              on: {
+                  click: () => {
+                    this.onEditForm(params)
+                  }
+              }
+              }, '编辑'),
+              h('Button', {
+              on: {
+                  click: () => {
+                  this.onDeleteKlass(params.row.id)
+                  }
+              }
+              }, '删除'),
+          ])
       }
       ]
     }
@@ -68,6 +85,26 @@ export default {
         this.items = res.data
       })
     },
+    onEditForm(params){
+      console.log("this params"+params)
+      //输入内容
+      this.$router.push({
+          path:`/klass/edit`,
+          query:{
+              id: params.row.id
+          }
+      })
+    },
+    onDeleteKlass(id){
+      shippingService.delete(id).then(res=>{
+            if(res.data.code===0){
+              this.$Message.success("删除成功")
+              this.getKlassList()
+            }else{
+              this.$Message.success("删除失败："+res.data.message)
+            }
+          })
+    }
   }
 
 }
