@@ -1,44 +1,46 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import iView from 'iview'
+import login from '@/views/login.vue'
 import layout from '@/views/admin/layout/index.vue'
 import clayout from '@/views/customer/layout/index.vue'
-import slayout from '@/views/customer/layout/index.vue'
+import slayout from '@/views/supplier/layout/index.vue'
 
 Vue.use(Router)
 
 const router = new Router({
     routes: [
         {
-            path: '/login',
+            path: '/',
             name: 'login',
+            redirect: '/login',
             meta: {
                 title: '用户登录'
             },
-            component: () => import('@/views/login.vue')
+            component: login,
+            children: [
+              {
+              path: 'login',
+              meta: {
+                  title: '用户登录'
+              },
+              component: () => import('@/views/login.vue')
+              }
+            ]
+        },
+        {
+            path: '/register',
+            name: 'register',
+            meta: {
+                title: '用户注册'
+            },
+            component: () => import('@/views/register.vue')
         },
         {
             path: '*',
             component: () => import('@/views/not-found.vue')
         },
-        {
-            path: '/',
-            name: 'index',
-            redirect: '/index',
-            meta: {
-                title: '票据管理系统'
-            },
-            component: slayout,
-            children: [
-                {
-                path: 'index',
-                meta: {
-                    title: '票据管理系统'
-                },
-                component: () => import('@/views/supplier/index/index.vue')
-                }
-            ]
-        },
+      
         {
           path: '/table',
           name: 'shipping',
@@ -98,7 +100,21 @@ const router = new Router({
                     title: '供应商信息'
                 },
                 component: () => import('@/views/admin/user/supplier/list.vue')
-              }
+              },
+              {
+                path: '/admin/user/addAdmin',
+                meta: {
+                    title: '添加管理员'
+                },
+                component: () => import('@/views/admin/user/addAdmin.vue')
+              },
+              {
+                path: '/admin/user/changepwd',
+                meta: {
+                    title: '密码更改'
+                },
+                component: () => import('@/views/admin/user/changepwd.vue')
+              },
           ]
         },
 
@@ -148,6 +164,13 @@ const router = new Router({
                 title: '客户个人信息编辑表'
               },
               component: ()=> import('@/views/customer/person/edit.vue')
+            },
+            {
+              path: '/customer/person/changepwd',
+              meta:{
+                title: '客户个人信息编辑表'
+              },
+              component: ()=> import('@/views/customer/person/changepwd.vue')
             }
           ]
         },
@@ -198,11 +221,20 @@ const router = new Router({
                 title: '客户个人信息编辑表'
               },
               component: ()=> import('@/views/supplier/person/edit.vue')
+            },
+            {
+              path: '/supplier/person/changepwd',
+              meta:{
+                title: '密码修改'
+              },
+              component: ()=> import('@/views/supplier/person/changepwd.vue')
             }
           ]
         }
     ]
 })
+
+
 
 router.beforeEach((to, from, next) => {
 

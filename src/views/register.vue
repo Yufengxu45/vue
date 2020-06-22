@@ -1,7 +1,13 @@
 <template>
   <Card class="login" dis-hover>
-    <p slot="title">用户登录</p>
+    <p slot="title">用户注册</p>
     <Form class="form" ref="loginForm" :model="form" :rules="rules" :label-width="0" label-position="left">
+      <Form-item>
+            <i-select :model.sync="form.select" size="large" placeholder="请选择注册账户类型">
+                <i-option value="customer">客户</i-option>
+                <i-option value="supplier">供应商</i-option>
+            </i-select>
+      </Form-item>  
       <Form-item prop="username">
         <Input v-model="form.username" size="large" prefix="md-person" placeholder="请输入账号"/>
       </Form-item>
@@ -9,8 +15,6 @@
         <Input v-model="form.password" type="password" size="large" prefix="md-lock" placeholder="请输入密码" />
       </Form-item>
       <Form-item>
-        <Button type="primary" size="large" long @click="onLogin">登录</Button>
-        <br><br>
         <Button type="warning" size="large" long @click="register">注册</Button>
       </Form-item>
     </Form>
@@ -40,31 +44,12 @@ export default {
     }
   },
   methods: {
-    onLogin () {
-      this.$Message.success('登录成功')
-      // LoginByUsername({ commit }, userInfo) {
-      //   const username = userInfo.username.trim()
-      //   return new Promise((resolve, reject) => {
-      //     loginByUsername(username, userInfo.password).then(response => {
-      //       const data = response.data
-      //       Cookies.set('Token', response.data.token) //登录成功后将token存储在cookie之中
-      //       commit('SET_TOKEN', data.token)
-      //       resolve()
-      //     }).catch(error => {
-      //         reject(error)
-      //     });
-      // });
-      // }
-      // this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
-      //   this.$router.push({ path: '/' }); //登录成功之后重定向到首页
-      //   }).catch(err => {
-      //  this.$message.error(err); //登录失败提示错误
-      // });
-    },
 
     register(){
-      this.$router.push({path:'/register'})
-    }
+      this.$Message.success('注册成功')
+      this.$router.push({path:'/'})
+      
+    },
   }
 }
 </script>

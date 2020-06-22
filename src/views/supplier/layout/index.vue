@@ -11,23 +11,23 @@
         />
 
         <div class="header_title">
-          <p>客户系统</p>
+          <p>供应商系统</p>
         </div>
 
         <div class="profile-wrapper">
           <Dropdown @on-click="onProfileItemClick">
             <a class="btn-dropdown">
               <Icon type="md-person" size="30" />
-              <p>客户</p>
+              <p>供应商</p>
               <Icon type="ios-arrow-down"></Icon>
             </a>
             <DropdownMenu slot="list">
-              <DropdownItem >
+              <DropdownItem name="changePassword">
                 <div  class="flex_row">
                   修改密码
                 </div>
               </DropdownItem>
-              <DropdownItem >
+              <DropdownItem divided name="logout">
                 <div class="flex_row">
                   注销
                 </div>
@@ -91,10 +91,12 @@ export default {
 
     changePassword () {
       this.$Message.info('修改密码')
+      this.$router.push({path:'/supplier/person/changepwd'})
     },
 
     logout () {
-      this.$Message.info('注销成功')  
+      this.$Message.info('注销成功')
+      this.$router.push({path:'/login'})
     }
   }
 }

@@ -40,7 +40,17 @@ export default [
         icon: 'ios-person',
         title: '供应商信息',
         route: '/admin/user/supplier/list'
-      }
+      },
+      {
+        icon: 'ios-person',
+        title: '管理员添加',
+        route: '/admin/user/addAdmin'
+      },
+      {
+        icon: 'ios-person',
+        title: '密码修改',
+        route: '/admin/user/changepwd'
+      },
     ]
   }
   /*{

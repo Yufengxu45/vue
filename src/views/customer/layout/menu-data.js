@@ -25,7 +25,12 @@ export default [
           icon: 'ios-folder-outline',
           title: '个人信息修改',
           route: '/customer/person/edit'
-        }
+        },
+        {
+          icon: 'ios-folder-outline',
+          title: '密码修改',
+          route: '/customer/person/changepwd'
+        },
       ]
     },
 ]

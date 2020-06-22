@@ -7,7 +7,7 @@ export default [
         {
           icon: 'ios-folder-outline',
           title: '进货信息表',
-          route: '/supplier/table/supplier/list'
+          route: '/supplier/table/shipping/list'
         }
       ]
     },
@@ -25,7 +25,12 @@ export default [
           icon: 'ios-folder-outline',
           title: '个人信息修改',
           route: '/supplier/person/edit'
-        }
+        },
+        {
+          icon: 'ios-folder-outline',
+          title: '修改密码',
+          route: '/supplier/person/changepwd'
+        },
       ]
     },
 ]
